@@ -99,8 +99,8 @@ for ecosyst in cities_github_df.Ecosystem.unique():
 
     df = df.astype(str)
     df["timestamp"] = timestamp
-    engine = create_engine("mysql+pymysql://{user}:{pw}@database-1.cluster-ro-ct2brvwy8za8.us-east-1.rds.amazonaws.com/{db}"
-                           .format(user="admin", pw="d5Sj5U7lZqwNYsqRjhJI", db="datacollection"))
+    engine = create_engine("mysql+pymysql://{user}:{pw}@localhost/{db}"
+                           .format(user="user", pw="password", db="dbname"))
     conn = engine.connect()
     conn.execute("CREATE TABLE IF NOT EXISTS GSER_github (Ecosystem varchar(50),\
                    city varchar(100), all_developers MEDIUMTEXT, top_dev_10 MEDIUMTEXT, timestamp timestamp);")
